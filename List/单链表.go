@@ -120,11 +120,26 @@ func(list *List)Reverse(){
 	list.head = pre
 
 }
-//func (list *List) Add(value int)  {
-//	node := &ListNode{Val:value}
-//	node.Next = list.head
-//	list.head = node
-//}
+//删除链表中等于给定值 val 的所有节点。 leetcode203
+func removeElements(head *ListNode, val int) *ListNode {
+	prev := &ListNode{0,head}
+	if head == nil{
+		return head
+	}
+	cur := prev
+	temp := head
+	for temp != nil{
+		if temp.Val == val{
+			cur.Next = temp.Next
+			temp = temp.Next
+		}else{
+			cur.Next = temp
+			cur = cur.Next
+			temp = temp.Next
+		}
+	}
+	return prev.Next
+}
 
 
 func main(){

@@ -3,11 +3,7 @@ package main
 import (
 	"fmt"
 )
-type TreeNode struct {
-	Val int
-	Left *TreeNode
-	Right *TreeNode
-}
+
 //递归
 func inOrder(t *TreeNode){
 	if t == nil{

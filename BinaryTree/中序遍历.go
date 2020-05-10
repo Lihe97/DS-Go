@@ -1,36 +1,41 @@
 package main
 
-import "fmt"
-
-
-//递归遍历
-func preOrder(t *TreeNode){
+import (
+	"fmt"
+)
+type TreeNode struct {
+	Val int
+	Left *TreeNode
+	Right *TreeNode
+}
+//递归
+func inOrder(t *TreeNode){
 	if t == nil{
 		return
 	}
+	inOrder(t.Left)
 	fmt.Println(t.Val)
-	preOrder(t.Left)
-	preOrder(t.Right)
+	inOrder(t.Right)
 }
-//非递归遍历
-func preOrderr(t *TreeNode){
+//非递归
+func inOrderr(t *TreeNode){
 
 	stack := []*TreeNode{}
 
-	stack = append(stack,t)
-	for len(stack) != 0{
 
-		temp := stack[len(stack)-1]
-		fmt.Println(temp.Val)
-		stack = stack[:len(stack)-1]
-		if temp.Right != nil{
-			stack = append(stack,temp.Right)
+	for len(stack) != 0 || t != nil{
+
+		for t != nil{
+			stack = append(stack,t)
+			t = t.Left
 		}
-		if temp.Left != nil{
-			stack = append(stack,temp.Left)
-		}
+		t = stack[len(stack) - 1]
+		fmt.Println(t.Val)
+		stack = stack[:len(stack) - 1]
+
+		t = t.Right
+
 	}
-
 }
 
 func main() {
@@ -70,7 +75,5 @@ func main() {
 		Left:  b,
 		Right: c,
 	}
-
-	preOrder(a)
-	
+	inOrderr(a)
 }

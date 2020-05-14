@@ -1,11 +1,7 @@
 package main
 
 import "fmt"
-type TreeNode struct {
-	Val int
-	Left *TreeNode
-	Right *TreeNode
-}
+
 func postOrder(root *TreeNode){
 	if root == nil{
 		return
@@ -38,7 +34,6 @@ func postOrderr(root *TreeNode){
 		fmt.Println(temp.Val)
 		stack2 = stack2[:len(stack2) - 1]
 	}
-
 }
 
 func main() {

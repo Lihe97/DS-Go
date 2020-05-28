@@ -142,8 +142,12 @@ func removeElements(head *ListNode, val int) *ListNode {
 }
 
 
+
+
 func main(){
 	a := List{}
+
+	//定义插入、删除操作
 	a.Add(1)
 	a.PushBack(2)
 	a.PushBack(3)

@@ -31,6 +31,7 @@ func partition(nums []int,start,end int)int{
 		nums[start],nums[end] = nums[end],nums[start]
 
 	}
+	fmt.Println(nums)
 	return start
 
 }
